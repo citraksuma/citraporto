@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', sans-serif;
+    }
+
+    body {
+      background-color: #f5f3f2;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background-color: #282828;
+      color: #dcdcdc;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background-color: #6c5b7b;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: background-color 0.3s ease;
+    }
+
+    header.dark-mode {
+      background-color: #383838;
+    }
+
+    .logo {
+      font-weight: 700;
+      color: #f5f3f2;
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
+
+    nav a {
+      margin-left: 30px;
+      text-decoration: none;
+      color: #f5f3f2;
+      font-weight: 600;
+      font-size: 1.2rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #f5f3f2;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.dark-mode {
+      color: #dcdcdc;
+    }
+
+    nav a.dark-mode:hover::after {
+      background-color: #dcdcdc;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 80px 10%;
+      min-height: 80vh;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .text-section {
+      max-width: 45%;
+      z-index: 2;
+      opacity: 0;
+    }
+
+    .text-section h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      color: #6c5b7b;
+      text-transform: uppercase;
+    }
+
+    .text-section p {
+      font-size: 1.2rem;
+      color: #444;
+      margin-bottom: 25px;
+    }
+
+    .text-section span {
+      color: #6c5b7b;
+      font-weight: bold;
+    }
+
+    .btn {
+      background-color: #6c5b7b;
+      color: #fff;
+      padding: 14px 25px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .image-section {
+      position: absolute;
+      top: 30%;
+      right: 10%;
+      transform: translateY(-50%);
+      z-index: 1;
+      opacity: 0;
+    }
+
+    .image-section img {
+      width: 350px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+
+    .image-section img:hover {
+      transform: scale(1.1);
+    }
+
+    .mode-toggle {
+      cursor: pointer;
+      background-color: #6c5b7b;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 25px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .mode-toggle:hover {
+      background-color: #4e3b5d;
+    }
+
+    footer {
+      background-color: #6c5b7b;
+      color: white;
+      padding: 40px 10%;
+      text-align: center;
+      margin-top: 40px;
+      transition: background-color 0.3s ease;
+    }
+
+    footer.dark-mode {
+      background-color: #383838;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .social-icon {
+      margin: 0 20px;
+      display: inline-block;
+    }
+
+    .social-icon img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s ease;
+    }
+
+    .social-icon:hover img {
+      transform: scale(1.1);
+    }
+
+    footer p {
+      font-size: 1rem;
+      color: #f5f3f2;
+    }
+
+    footer.dark-mode p {
+      color: #dcdcdc;
+    }
+
+    @media (max-width: 768px) {
+      footer {
+        padding: 30px 5%;
+      }
+
+      .social-icons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .social-icon {
+        margin-bottom: 10px;
+      }
+    }
+
+    /* Animation Keyframes */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInRight {
+      from {
+        opacity: 0;
+        transform: translateX(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .animate-text {
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .animate-image {
+      animation: fadeInRight 1.2s ease forwards;
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <header>
+    <div class="logo"> Portfolio.</div>
+    <nav>
+      <a href="index.html" class="light-mode">Home</a>
+      <a href="about.html" class="light-mode">About</a>
+      <a href="skill.html" class="light-mode">Skills</a>
+      <a href="contact.html" class="light-mode">Experience</a>
+    </nav>
+    <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+  </header>
+
+  <div class="container">
+    <div class="text-section">
+      <p>Hello,</p>
+      <h1>I'm <strong>Citra Kusuma Ningrum</strong></h1>
+      <p><span>Student</span><br />From SMKN 1 Nglegok</p>
+      <a href="about.html" class="btn">Hire Me</a>
+    </div>
+    <div class="image-section">
+      <img src="image/citra.jpeg" alt="Citra Profile Photo" />
+    </div>
+  </div>
+
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/citrakusumaningrummm" target="_blank" class="social-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+      </a>
+      <a href="https://github.com/citrakusuma" target="_blank" class="social-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" />
+      </a>
+    </div>
+    <p>&copy; 2025 Citra Kusuma Ningrum.</p>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const header = document.querySelector('header');
+      const navLinks = document.querySelectorAll('nav a');
+      const footer = document.querySelector('footer');
+      const socialLinks = document.querySelectorAll('.social-icons a');
+      
+      body.classList.toggle('dark-mode');
+      header.classList.toggle('dark-mode');
+      footer.classList.toggle('dark-mode');
+      
+      navLinks.forEach(link => {
+        link.classList.toggle('dark-mode');
+      });
+
+      socialLinks.forEach(link => {
+        link.classList.toggle('dark-mode');
+      });
+
+      const button = document.querySelector('.mode-toggle');
+      button.textContent = body.classList.contains('dark-mode') ? '🌞' : '🌙';
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
+
+    // Animasi masuk saat halaman dimuat
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.text-section').classList.add('animate-text');
+      document.querySelector('.image-section').classList.add('animate-image');
+    });
+  </script>
+</body>
+</html>

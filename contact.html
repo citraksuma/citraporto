@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experience</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Times New Roman', serif;
+    }
+
+    body {
+      background-color: #f8f6f4;
+      color: #333;
+      transition: background-color 0.3s ease;
+    }
+
+    body.dark-mode {
+      background-color: #1e1e1e;
+      color: #dcdcdc;
+    }
+
+    header {
+      background-color: #6c5b7b;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    header.dark-mode {
+      background-color: #383838;
+    }
+
+    .logo {
+      font-size: 2rem;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    nav a {
+      margin-left: 25px;
+      text-decoration: none;
+      color: #f5f3f2;
+      font-weight: bold;
+      font-size: 1.1rem;
+      position: relative;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #f5f3f2;
+      left: 0;
+      bottom: -5px;
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    nav a.dark-mode {
+      color: #dcdcdc;
+    }
+
+    .mode-toggle {
+      background-color: #6c5b7b;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .mode-toggle:hover {
+      background-color: #4e3b5d;
+    }
+
+    .experience-section {
+      padding: 4rem 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .experience-title {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #4e3d63;
+      margin-bottom: 3rem;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 40px;
+      border-left: 3px solid #6c5b7b;
+    }
+
+    .timeline-item {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -10px;
+      top: 5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background-color: #6c5b7b;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #3a2e4f;
+    }
+
+    .timeline-item span {
+      font-size: 1rem;
+      font-style: italic;
+      color: #777;
+    }
+
+    .timeline-item p {
+      margin-top: 5px;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    footer {
+      background-color: #6c5b7b;
+      color: white;
+      padding: 40px 10%;
+      text-align: center;
+      margin-top: 40px;
+      transition: background-color 0.3s ease;
+    }
+
+    footer.dark-mode {
+      background-color: #383838;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .social-icon {
+      margin: 0 15px;
+    }
+
+    .social-icon img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s;
+    }
+
+    .social-icon:hover img {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      nav a {
+        margin-left: 15px;
+      }
+
+      .experience-section {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+<body class="light-mode">
+  <header>
+    <div class="logo">Portfolio.</div>
+    <nav>
+      <a href="index.html" class="light-mode">Home</a>
+      <a href="about.html" class="light-mode">About</a>
+      <a href="skill.html" class="light-mode">Skills</a>
+      <a href="contact.html" class="light-mode">Experience</a>
+    </nav>
+    <button class="mode-toggle" onclick="toggleMode()">🌙</button>
+  </header>
+
+  <section class="experience-section">
+    <h2 class="experience-title">Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Proyek Kelas - Pemrograman web</h3>
+        <span>2024-sekarang</span>
+        <p>Membuat, mengelola, dan mengkolaborasikan dengan ai membuat website static page.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Proyek Kelas - SysAdmin</h3>
+        <span>2025</span>
+        <p>Membuat dan mengelola pembuatan website dengan VPS.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Proyek Kelas - SysAdmin</h3>
+        <span>2024</span>
+        <p>Mengerjakan proyek pembuatan website lokal berbasis wordpress cms.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>Anggota Komunitas IT</h3>
+        <span>2023 - 2026</span>
+        <p>Sebagai anggota aktif.</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  
+  <footer>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/citrakusumaningrummm" target="_blank" class="social-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+      </a>
+      <a href="https://github.com/citrakusuma" target="_blank" class="social-icon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub" />
+      </a>
+    </div>
+    <p>&copy; 2025 Citra Kusuma Ningrum.</p>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      const body = document.body;
+      const header = document.querySelector('header');
+      const navLinks = document.querySelectorAll('nav a');
+      const footer = document.querySelector('footer');
+
+      body.classList.toggle('dark-mode');
+      header.classList.toggle('dark-mode');
+      footer.classList.toggle('dark-mode');
+
+      navLinks.forEach(link => {
+        link.classList.toggle('dark-mode');
+      });
+
+      const button = document.querySelector('.mode-toggle');
+      button.textContent = body.classList.contains('dark-mode') ? '🌞' : '🌙';
+    }
+  </script>
+</body>
+</html>
